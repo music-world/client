@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="https://dewey.tailorbrands.com/production/brand_version_mockup_image/899/1664723899_9f91dca4-7411-4680-bfdd-94d6effa9994.png?cb=1549544628" type="image/x-icon">
   <meta name="google-signin-client_id" content="509823842473-s1ourln1e4vc9o2cnl271p773ms4faep.apps.googleusercontent.com">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <title>Music World</title>
 </head>
 <body>
@@ -25,41 +26,22 @@
         <div id="signInButton" class="g-signin2" data-onsuccess="onSignIn"></div>
         <button onclick="signOut();" id="signOutButton" style="background-color:white; height: 36px; width: 120px; padding: 0" type="button" class="btn btn-secondary ml-2">Log out</button>
       </div>
-  </nav>
-
-  <div id="content" style="overflow-y: scroll; height: 89vh;" >
-    <div class="card-columns" style="column-count: 4">
-      <div class="card text-white bg-primary mx-1 mt-1" style="width: 98%; height: 350px">
-          <div class="card-header">Header</div>
-          <div class="card-body">
-            <h4 class="card-title">Primary card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-      </div>
-      <div class="card text-white bg-primary mx-1 mt-1" style="width: 98%; height: 350px">
-          <div class="card-header">Header</div>
-          <div class="card-body">
-            <h4 class="card-title">Primary card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-      </div>
-      <div class="card text-white bg-primary mx-1 mt-1" style="width: 98%; height: 350px">
-          <div class="card-header">Header</div>
-          <div class="card-body">
-            <h4 class="card-title">Primary card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-      </div>
-      <div class="card text-white bg-primary mx-1 mt-1" style="width: 98%; height: 350px">
-          <div class="card-header">Header</div>
-          <div class="card-body">
-            <h4 class="card-title">Primary card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-      </div>
-
-    </div>
       
+      <div class="container h-100">
+          <div class="d-flex h-100">
+            <div class="searchbar">
+              <input class="search_input" type="text" name="" placeholder="Search...">
+              <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+            </div>
+          </div>
+        </div>
+  </nav>
+  <!--Search-->
+  
+
+  <div id="content" style="overflow-y: scroll; height: 89vh;">
+      <div class="card-columns" style="column-count: 4">
+      </div>   
   </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
