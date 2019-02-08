@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="https://dewey.tailorbrands.com/production/brand_version_mockup_image/899/1664723899_9f91dca4-7411-4680-bfdd-94d6effa9994.png?cb=1549544628" type="image/x-icon">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+  <meta name="google-signin-client_id" content="509823842473-s1ourln1e4vc9o2cnl271p773ms4faep.apps.googleusercontent.com">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <title>Music World</title>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      
+      <div class="container h-100" style="width:540px;">
+          <div class="d-flex h-100">
+            <div class="searchbar">
+                <input class="search_input form-control" value="" type="text" name="" placeholder="Search..." id="searchTitle">
+                <a onclick="songDetail()" href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                <a id="recordVoice" href="#" class="search_icon"><i class="fas fa-microphone"></i></a>
+            </div>
+          </div>
+      </div>
+      <h5 class="text-white text-center" style="cursor: pointer" onclick="getTopChart()"><img src="https://dewey.tailorbrands.com/production/brand_version_mockup_image/899/1664723899_9f91dca4-7411-4680-bfdd-94d6effa9994.png?cb=1549544628" type="image/x-icon" style="height:20px;width:40px;"><br><br>Music World</h5>
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+        </ul>
+        <div id="signInButton" class="g-signin2" data-onsuccess="onSignIn"></div>
+        <button onclick="signOut();" id="signOutButton" style="background-color:black; height: 36px; width: 120px; padding: 0" type="button" class="btn btn-outline-secondary ml-2">Log out</button>
+      </div>
+  </nav>
+
+  <!--Search-->
+  
+  <div id="loginPage" class="row">
+      <div class="col"></div>
+      <div class="card col-3 mt-3" style="width: 18rem; background-color: #f2f2f2">
+          <img style="width: 20rem;" src="https://dewey.tailorbrands.com/production/brand_version_mockup_image/899/1664723899_9f91dca4-7411-4680-bfdd-94d6effa9994.png?cb=1549544628" class="card-img-top mt-3 mx-auto" alt="music world">
+          <div class="card-body">
+              <h2 class="text-center ">PLEASE LOGIN </h2>
+              <div class="row">
+                  <div class="col"></div>
+                  <div id="signInButton" class="col g-signin2 text-center" data-onsuccess="onSignIn"></div>
+                  <div class="col"></div>
+              </div>
+          </div>
+      </div>
+      <div class="col"> </div>
+   </div>
+
+  <div id="content" style="overflow-y: scroll; height: 89vh;" >
+      <div class="card-columns" style="column-count: 4">
+      </div>  
+  </div>
+
+  <div id="detail" class="container">  
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+
+  <script src="index.js"></script>
+  <script>
+    window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+        const recognition = new SpeechRecognition();
+        let textbox = document.querySelector('.form-control');
+        $('#recordVoice').click(function () {
+            console.log('start recording');
+            record();
+        })
+        function record() {
+            recognition.start();
+            recognition.onresult = (event) => {
+                const speechToText = event.results[0][0].transcript;
+                console.log(speechToText,"=======");
+                $('.form-control').val(speechToText);
+            }
+            recognition.onspeechend = function() {
+                recognition.stop();
+            }
+        }
+
+        function notFound(){
+           console.log('not found')
+        }
+  </script>
+</body>
+</html>
